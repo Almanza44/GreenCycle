@@ -1,10 +1,11 @@
 # Web Development Laravel Starter
 
-Proyecto base para el curso **TM4100**, preparado para desarrollar aplicaciones web con Laravel en un entorno reproducible.
+Proyecto para el curso **TM4100**, preparado para desarrollar aplicaciones web con Laravel en un entorno reproducible. GreenCycle es un es una aplicación web gamificada en la que cada persona usuaria
+administra un vivero digital.
 
 ## Propósito
 
-Esta aplicación proporciona un entorno inicial para aprender y practicar:
+Esta aplicación proporciona un juego donde el usuario administra la vida de sus propios arboles deigtales:
 
 - Arquitectura MVC.
 - Rutas y controladores.
