@@ -59,29 +59,29 @@
 
         <div class="trees-grid">
 
-            <div class="empty-state">
+    <div class="empty-state">
 
-                <h3>
-                    Tu vivero está vacío
-                </h3>
+        <h3>
+            Tu vivero está vacío
+        </h3>
 
-                <p>
-                    Planta tu primer árbol y comienza a construir tu vivero.
-                </p>
+        <p>
+            Planta tu primer árbol y comienza a construir tu vivero.
+        </p>
 
-                <button
-                    type="button"
-                    class="button button--primary"
-                >
-                    Plantar mi primer árbol
-                </button>
-
-            </div>
-
-        </div>
+        <button
+            type="button"
+            class="button button--primary"
+        >
+            Plantar mi primer árbol
+        </button>
 
     </div>
 
-</section>
+</div>
+
+</div>
+
+    </section>
 
 @endsection

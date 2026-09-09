@@ -1182,3 +1182,168 @@ img {
     }
 
 }
+
+/* ========================================
+   TREE CARDS
+   ======================================== */
+
+.tree-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-card);
+
+    transition:
+        transform 180ms ease,
+        box-shadow 180ms ease;
+}
+
+.tree-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgb(27 67 50 / 12%);
+}
+
+
+/* IMAGEN */
+
+.tree-card__image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background: var(--color-background);
+}
+
+.tree-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transition: transform 300ms ease;
+}
+
+.tree-card:hover .tree-card__image img {
+    transform: scale(1.04);
+}
+
+
+/* CONTENIDO */
+
+.tree-card__content {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+}
+
+
+/* ENCABEZADO */
+
+.tree-card__heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.tree-card__heading h3 {
+    margin: 0 0 0.35rem;
+    color: var(--color-primary-dark);
+    font-size: 1.25rem;
+}
+
+.tree-card__heading p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+}
+
+
+/* ESTADO */
+
+.tree-status {
+    flex-shrink: 0;
+    padding: 0.35rem 0.65rem;
+
+    background: rgb(45 106 79 / 10%);
+    border-radius: 999px;
+
+    color: var(--color-primary);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+
+/* PROGRESO Y SALUD */
+
+.tree-progress,
+.tree-health {
+    margin-bottom: 1.25rem;
+}
+
+.tree-progress__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+
+    color: var(--color-muted);
+    font-size: 0.8rem;
+}
+
+
+/* BARRAS */
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    overflow: hidden;
+
+    background: var(--color-border);
+    border-radius: 999px;
+}
+
+.progress-bar__fill {
+    height: 100%;
+
+    background: var(--color-primary);
+    border-radius: inherit;
+
+    transition: width 300ms ease;
+}
+
+
+/* BOTÓN */
+
+.tree-care-button {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 750px) {
+
+    .trees-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 550px) {
+
+    .trees-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tree-card__image {
+        height: 240px;
+    }
+
+}
