@@ -198,46 +198,6 @@ img {
   margin-top: 2rem;
 }
 
-
-/* ============================================
-   ILUSTRACIÓN TEMPORAL DEL HERO
-   ============================================ */
-
-.hero__visual {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  min-height: 320px;
-}
-
-.hero__placeholder {
-  width: 260px;
-  height: 260px;
-
-  background:
-    radial-gradient(
-      circle at 50% 35%,
-      var(--color-primary-light) 0 28%,
-      transparent 29%
-    ),
-    radial-gradient(
-      circle at 35% 45%,
-      var(--color-primary) 0 20%,
-      transparent 21%
-    ),
-    radial-gradient(
-      circle at 65% 45%,
-      var(--color-primary) 0 20%,
-      transparent 21%
-    );
-
-  border-radius: 50%;
-
-  opacity: 0.9;
-}
-
-
 /* ============================================
    BOTONES
    ============================================ */
@@ -347,75 +307,306 @@ img {
 
 
 /* ============================================
-   GRID DE TARJETAS
+   SLIDER
    ============================================ */
 
-.features__grid {
-  display: grid;
-
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-
-  gap: 1.25rem;
-
+.slider {
+  position: relative;
+  display: flex;
+  align-items: center;
   width: 100%;
+  max-width: 1000px;
+  margin-inline: auto;
 }
 
 
 /* ============================================
-   TARJETAS
+   VENTANA
    ============================================ */
 
-.card {
-  min-width: 0;
-  padding: 2rem;
+.slider__viewport {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 1.5rem;
+}
+
+
+/* ============================================
+   TRACK
+   ============================================ */
+
+.slider__track {
+  display: flex;
+  width: 100%;
+  transition: transform 500ms ease;
+}
+
+
+/* ============================================
+   SLIDES
+   ============================================ */
+
+.slide {
+  flex: 0 0 100%;
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+
+  min-width: 100%;
+
+  min-height: 390px;
+  padding: 3.5rem 4rem;
 
   background: var(--color-surface);
 
   border: 1px solid var(--color-border);
-  border-radius: 1rem;
+  border-radius: 1.5rem;
 
   box-shadow: var(--shadow-card);
-
-  transition:
-    transform 180ms ease,
-    box-shadow 180ms ease;
 }
 
-.card:hover {
-  transform: translateY(-4px);
 
-  box-shadow: 0 20px 40px rgb(27 67 50 / 12%);
+/* ============================================
+   CONTENIDO
+   ============================================ */
+
+.slide__content {
+  max-width: 430px;
 }
 
-.card__icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.slide__number {
+  margin: 0 0 0.5rem;
 
-  width: 52px;
-  height: 52px;
+  color: var(--color-primary-light);
 
-  margin-bottom: 1.5rem;
-
-  background: var(--color-primary-light);
-
-  border-radius: 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
 }
 
-.card h3 {
+.slide h3 {
   margin: 0;
 
   color: var(--color-primary-dark);
 
-  font-size: 1.25rem;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
 }
 
-.card p {
-  margin: 0.75rem 0 0;
+.slide__content > p:last-child {
+  margin: 1.25rem 0 0;
 
   color: var(--color-muted);
 
+  font-size: 1.05rem;
   line-height: 1.7;
+}
+
+
+/* ============================================
+   IMÁGENES
+   ============================================ */
+
+.slide__image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 280px;
+  padding: 1rem;
+}
+
+.slide__image img {
+  width: 100%;
+  max-width: 360px;
+  height: 280px;
+  object-fit: contain;
+  border-radius: 1.25rem;
+  transition: transform 300ms ease;
+}
+
+.slide__image img:hover {
+  transform: scale(1.04);
+}
+
+
+/* ============================================
+   FLECHAS
+   ============================================ */
+
+.slider__button {
+  position: absolute;
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  padding: 0;
+
+  background: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+
+  color: var(--color-primary-dark);
+
+  font-size: 1.4rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow: 0 8px 20px rgb(27 67 50 / 12%);
+
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.slider__button:hover {
+  background: var(--color-primary);
+  color: white;
+
+  transform: scale(1.08);
+}
+
+.slider__button:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.slider__button--prev {
+  left: -24px;
+}
+
+.slider__button--next {
+  right: -24px;
+}
+
+
+/* ============================================
+   INDICADORES
+   ============================================ */
+
+.slider__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+
+  margin-top: 1.5rem;
+}
+
+.slider__dot {
+  width: 9px;
+  height: 9px;
+
+  padding: 0;
+
+  background: var(--color-border);
+
+  border: 0;
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease;
+}
+
+.slider__dot:hover {
+  transform: scale(1.2);
+}
+
+.slider__dot.is-active {
+  width: 26px;
+
+  border-radius: 999px;
+
+  background: var(--color-primary);
+}
+
+
+/* ============================================
+   RESPONSIVE DEL SLIDER
+   ============================================ */
+
+@media (max-width: 900px) {
+
+  .slide {
+    min-height: 340px;
+    padding: 2.5rem 3rem;
+  }
+
+  .slide__image {
+    min-height: 240px;
+  }
+
+  .slide__image img {
+    height: 230px;
+  }
+
+  .slider__button--prev {
+    left: -18px;
+  }
+
+  .slider__button--next {
+    right: -18px;
+  }
+}
+
+
+@media (max-width: 650px) {
+
+  .slider {
+    width: calc(100% - 2rem);
+  }
+
+  .slide {
+    grid-template-columns: 1fr;
+
+    min-height: 500px;
+
+    padding: 2rem 2rem 2.5rem;
+
+    text-align: center;
+  }
+
+  .slide__content {
+    max-width: none;
+  }
+
+  .slide__image {
+    min-height: 220px;
+
+    order: -1;
+  }
+
+  .slide__image img {
+    height: 210px;
+  }
+
+  .slider__button {
+    width: 42px;
+    height: 42px;
+
+    font-size: 1.1rem;
+  }
+
+  .slider__button--prev {
+    left: -12px;
+  }
+
+  .slider__button--next {
+    right: -12px;
+  }
 }
 
 
