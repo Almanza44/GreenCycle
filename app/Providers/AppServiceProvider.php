@@ -19,6 +19,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Registrar la Policy para el modelo Tree
+        \Illuminate\Support\Facades\Gate::policy(Tree::class, TreePolicy::class);
     }
 }
