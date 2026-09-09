@@ -25,7 +25,7 @@
                     </p>
                 </div>
 
-                <form action="#" method="POST">
+                <form id="login-form">
 
                     <div class="form-group">
                         <label for="email">

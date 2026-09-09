@@ -33,6 +33,7 @@
             <button
                 type="button"
                 class="button button--primary"
+                id="open-plant-modal"
             >
                 Plantar árbol
             </button>
@@ -72,6 +73,7 @@
         <button
             type="button"
             class="button button--primary"
+            id="open-plant-modal-empty"
         >
             Plantar mi primer árbol
         </button>
@@ -83,5 +85,95 @@
 </div>
 
     </section>
+
+    <div
+    class="plant-modal"
+    id="plant-modal"
+    aria-hidden="true"
+>
+
+    <div class="plant-modal__overlay"></div>
+
+    <div
+        class="plant-modal__content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="plant-modal-title"
+    >
+
+        <button
+            type="button"
+            class="plant-modal__close"
+            id="close-plant-modal"
+            aria-label="Cerrar ventana"
+        >
+            ×
+        </button>
+
+        <div class="plant-modal__header">
+
+            <p class="plant-modal__eyebrow">
+                NUEVO ÁRBOL
+            </p>
+
+            <h2 id="plant-modal-title">
+                Planta un nuevo árbol
+            </h2>
+
+            <p>
+                Elige el tipo de árbol que quieres cultivar en tu vivero.
+            </p>
+
+        </div>
+
+        <form id="plant-tree-form">
+
+            <div class="form-group">
+
+                <label for="tree-name">
+                    Nombre del árbol
+                </label>
+
+                <input
+                    type="text"
+                    id="tree-name"
+                    name="name"
+                    placeholder="Ej. Mi roble"
+                    maxlength="255"
+                    required
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="tree-type">
+                    Tipo de árbol
+                </label>
+
+                <select
+                    id="tree-type"
+                    name="seed_type_id"
+                    required
+                >
+                    <option value="1">
+                        Roble
+                    </option>
+                </select>
+
+            </div>
+
+            <button
+                type="submit"
+                class="button button--primary plant-modal__submit"
+            >
+                Plantar árbol
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
 
 @endsection

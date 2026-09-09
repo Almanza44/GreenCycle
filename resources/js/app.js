@@ -122,3 +122,74 @@ document.querySelectorAll('.password-toggle').forEach((button) => {
         }
     });
 });
+
+const plantModal = document.getElementById('plant-modal');
+const openPlantModal = document.getElementById('open-plant-modal');
+const openPlantModalEmpty = document.getElementById('open-plant-modal-empty');
+const closePlantModal = document.getElementById('close-plant-modal');
+const plantModalOverlay = document.querySelector('.plant-modal__overlay');
+
+const openModal = () => {
+    plantModal.classList.add('is-open');
+    plantModal.setAttribute('aria-hidden', 'false');
+};
+
+const closeModal = () => {
+    plantModal.classList.remove('is-open');
+    plantModal.setAttribute('aria-hidden', 'true');
+};
+
+openPlantModal?.addEventListener('click', openModal);
+openPlantModalEmpty?.addEventListener('click', openModal);
+closePlantModal?.addEventListener('click', closeModal);
+plantModalOverlay?.addEventListener('click', closeModal);
+
+// ============================================
+// LOGIN
+// ============================================
+
+const loginForm = document.getElementById('login-form');
+
+loginForm?.addEventListener('submit', async (event) => {
+
+    event.preventDefault();
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    try {
+
+        const response = await fetch('/api/login', {
+            method: 'POST',
+
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+
+            body: JSON.stringify({
+                email: email,
+                password: password
+            })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(
+                data.message || 'No se pudo iniciar sesión.'
+            );
+        }
+
+        localStorage.setItem('access_token', data.access_token);
+
+        window.location.href = '/dashboard';
+
+    } catch (error) {
+
+        console.error('Error al iniciar sesión:', error);
+
+        alert(error.message);
+    }
+
+});
