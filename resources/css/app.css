@@ -1032,3 +1032,153 @@ img {
 .password-toggle:hover {
     color: var(--color-primary-dark);
 }
+
+/* ========================================
+   DASHBOARD
+   ======================================== */
+
+.dashboard {
+    padding: 3rem 0 5rem;
+}
+
+.dashboard-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.dashboard-eyebrow {
+    margin: 0 0 0.75rem;
+    color: var(--color-primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+}
+
+.dashboard-header h1 {
+    margin: 0 0 0.75rem;
+    color: var(--color-primary-dark);
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+}
+
+.dashboard-header > div:first-child > p:last-child {
+    margin: 0;
+    color: var(--color-muted);
+    line-height: 1.7;
+}
+
+.dashboard-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.coins {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 120px;
+}
+
+.coins-label {
+    color: var(--color-muted);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.coins-value {
+    color: var(--color-primary-dark);
+    font-size: 1.5rem;
+}
+
+.trees-section__header {
+    margin-bottom: 2rem;
+}
+
+.trees-section__header h2 {
+    margin: 0 0 0.5rem;
+    color: var(--color-primary-dark);
+    font-size: 2rem;
+}
+
+.trees-section__header p:last-child {
+    margin: 0;
+    color: var(--color-muted);
+    line-height: 1.6;
+}
+
+.trees-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 280px;
+    padding: 3rem;
+    background: var(--color-surface);
+    border: 1px dashed var(--color-border);
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.empty-state h3 {
+    margin: 0 0 0.75rem;
+    color: var(--color-primary-dark);
+    font-size: 1.35rem;
+}
+
+.empty-state p {
+    max-width: 420px;
+    margin: 0 0 1.5rem;
+    color: var(--color-muted);
+    line-height: 1.6;
+}
+
+@media (max-width: 750px) {
+
+    .dashboard-header {
+        align-items: flex-start;
+        flex-direction: column;
+        margin-bottom: 3rem;
+    }
+
+    .dashboard-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .trees-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .dashboard {
+        padding: 2rem 0 4rem;
+    }
+
+    .dashboard-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .coins {
+        min-width: auto;
+    }
+
+    .empty-state {
+        min-height: 240px;
+        padding: 2rem 1.5rem;
+    }
+
+}
