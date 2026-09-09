@@ -106,3 +106,19 @@ showSlide(0);
 
 
 }
+
+document.querySelectorAll('.password-toggle').forEach((button) => {
+    button.addEventListener('click', () => {
+        const input = document.getElementById(button.dataset.target);
+
+        if (input.type === 'password') {
+            input.type = 'text';
+            button.textContent = 'Ocultar';
+            button.setAttribute('aria-label', 'Ocultar contraseña');
+        } else {
+            input.type = 'password';
+            button.textContent = 'Mostrar';
+            button.setAttribute('aria-label', 'Mostrar contraseña');
+        }
+    });
+});

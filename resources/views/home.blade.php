@@ -26,11 +26,11 @@
             </p>
 
             <div class="hero__actions">
-                <a href="#" class="button button--primary">
+                <a href="{{ route('register') }}" class="button button--primary">
                     Comenzar a cultivar
                 </a>
 
-                <a href="#" class="button button--secondary">
+                <a href="{{ route('login') }}" class="button button--secondary">
                     Iniciar sesión
                 </a>
             </div>
@@ -190,26 +190,5 @@
 
 
 </section>
-
-
-
-    <!-- ============================================
-         CTA
-         ============================================ -->
-    <section class="cta">
-
-        <h2>
-            ¿Listo para empezar?
-        </h2>
-
-        <p>
-            Crea tu cuenta y comienza a construir tu vivero.
-        </p>
-
-        <a href="#" class="button button--primary">
-            Crear mi cuenta
-        </a>
-
-    </section>
 
 @endsection
