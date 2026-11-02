@@ -63,4 +63,11 @@ class TreePolicy
     {
         return false;
     }
+
+    public function care(User $user, Tree $tree): bool
+    {
+        return $user->id === $tree->user_id;
+    }
+
+    
 }
