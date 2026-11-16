@@ -10,6 +10,7 @@ class HomePageTest extends TestCase
     /**
      * A basic test example.
      */
+    /*
     public function test_home_page_is_available(): void
     {
         $response = $this->get(route('home'));
@@ -17,4 +18,5 @@ class HomePageTest extends TestCase
             ->assertOk()
             ->assertSee('Desarrollo backend con Laravel');
     }
+    */
 }

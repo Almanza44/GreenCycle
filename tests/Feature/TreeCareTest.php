@@ -35,7 +35,7 @@ class TreeCareTest extends TestCase
         Sanctum::actingAs($user);
         $id=$tree->id;
         // Petición HTTP POST al endpoint usando interpolación de cadenas
-        $response = $this->postJson("/api/v1/trees/{$id}/care");
+        $response = $this->postJson("/api/trees/{$id}/care");
         $response->assertStatus(200);
 
         $this->assertDatabaseHas('trees', [
@@ -62,7 +62,7 @@ class TreeCareTest extends TestCase
 
         Sanctum::actingAs($user);
 
-        $response = $this->postJson("/api/v1/trees/{$tree->id}/care");
+        $response = $this->postJson("/api/trees/{$tree->id}/care");
 
         $response->assertStatus(409);
 
@@ -94,7 +94,7 @@ class TreeCareTest extends TestCase
 
         try {
             for ($i = 0; $i < 5; $i++) {
-                $response = $this->postJson("/api/v1/trees/{$tree->id}/care");
+                $response = $this->postJson("/api/trees/{$tree->id}/care");
 
                 $response->assertStatus(200);
 
@@ -129,7 +129,7 @@ class TreeCareTest extends TestCase
 
         Sanctum::actingAs($user);
 
-        $response = $this->postJson("/api/v1/trees/{$tree->id}/care");
+        $response = $this->postJson("/api/trees/{$tree->id}/care");
 
         $response->assertStatus(200);
 
@@ -159,7 +159,7 @@ class TreeCareTest extends TestCase
 
         Sanctum::actingAs($user);
 
-        $response = $this->postJson("/api/v1/trees/{$tree->id}/care");
+        $response = $this->postJson("/api/trees/{$tree->id}/care");
 
         $response->assertStatus(403);
 

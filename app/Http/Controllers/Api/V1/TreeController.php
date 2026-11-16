@@ -119,7 +119,7 @@ class TreeController extends Controller
         $tree->load('seedType');
         $careNeeded = $tree->seedType->care_needed_per_level ?? 5;
         //lógica de subir de nivel
-        if ($tree->progress >= 5) {
+        if ($tree->progress >= $careNeeded) {
             $tree->level += 1;
             $tree->progress = 0;
             if($tree->level >= 10){
